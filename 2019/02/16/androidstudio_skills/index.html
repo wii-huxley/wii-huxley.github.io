@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ic_launcher_round.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ic_launcher_round_32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ic_launcher_round_16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/ic_launcher_round.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,android studio,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="全文搜索 Text to find ：要查找的字符   Replace with ：替换为   Options ： General ：   Case sensitive ：区分大小写 Preserve case ：不区分大小写 Whole words only(may be faster) ：匹配整个单词 Reqular Expression[Help] ：使用正则表达式 Context： any">
+<meta name="keywords" content="android,android studio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio 使用技巧">
+<meta property="og:url" content="http://yoursite.com/2019/02/16/androidstudio_skills/index.html">
+<meta property="og:site_name" content="huxley">
+<meta property="og:description" content="全文搜索 Text to find ：要查找的字符   Replace with ：替换为   Options ： General ：   Case sensitive ：区分大小写 Preserve case ：不区分大小写 Whole words only(may be faster) ：匹配整个单词 Reqular Expression[Help] ：使用正则表达式 Context： any">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-22T06:09:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio 使用技巧">
+<meta name="twitter:description" content="全文搜索 Text to find ：要查找的字符   Replace with ：替换为   Options ： General ：   Case sensitive ：区分大小写 Preserve case ：不区分大小写 Whole words only(may be faster) ：匹配整个单词 Reqular Expression[Help] ：使用正则表达式 Context： any">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/16/androidstudio_skills/">
+
+
+
+
+
+  <title>Android Studio 使用技巧 | huxley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-144007035-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huxley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">没有不可能</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/androidstudio_skills/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唯一的博客">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huxley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android Studio 使用技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T18:52:38+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/android-studio/" itemprop="url" rel="index">
+                    <span itemprop="name">android studio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h3><ul>
+<li><code>Text to find</code> ：要查找的字符  </li>
+<li><code>Replace with</code> ：替换为  </li>
+<li><code>Options</code> ：<ul>
+<li><code>General</code> ：  <ul>
+<li><code>Case sensitive</code> ：区分大小写</li>
+<li><code>Preserve case</code> ：不区分大小写</li>
+<li><code>Whole words only(may be faster)</code> ：匹配整个单词</li>
+<li><code>Reqular Expression[Help]</code> ：使用正则表达式</li>
+<li><code>Context</code>：<ul>
+<li><code>anywhere</code> ：任何地方查找</li>
+<li><code>in comments</code> ：在注释中查找</li>
+<li><code>in string literals</code> ：在字符串中查找</li>
+<li><code>except comments</code> ：除了注释（注释之外查找）</li>
+<li><code>except string literals</code> ：除了字符串 (在字符串之外查找)</li>
+<li><code>except comments and string literals</code> ：除了注释和字符串(在注释和字符串之外查找)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Scope</code>：查找范围<ul>
+<li><code>Whole project</code> ：整个项目</li>
+<li><code>Module</code> ：对应的模块</li>
+<li><code>Directory</code> ：对应的目录</li>
+<li><code>Recursively</code> ：递归进入子目录查找</li>
+<li><code>Custom</code> ：自定义</li>
+</ul>
+</li>
+<li><code>File name filter</code> ：根据文件名称过滤<ul>
+<li><code>File mask(s)</code></li>
+</ul>
+</li>
+<li><code>Result options</code><ul>
+<li><code>Open in new tab</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义-Live-Template"><a href="#自定义-Live-Template" class="headerlink" title="自定义 Live Template"></a>自定义 Live Template</h3><p>创建Toast方法（自带的）</p>
+<ul>
+<li><p>进入活动模板界面：File -&gt; Settings -&gt; Editor -&gt; Live Templates</p>
+</li>
+<li><p>点击加号选择 <code>Template Group</code> ，输入活动模块的分组的名称 <code>Wii</code>，选中 <code>Wii</code> 再点击加号选择 <code>Live Template</code> ，输入要创建的活动模块名 <code>Toast</code> 。</p>
+<p>   Toast.makeText($className$.this, “$text$”, Toast.LENGTH_SHORT).show();</p>
+</li>
+</ul>
+<h3 id="自定义-File-Template"><a href="#自定义-File-Template" class="headerlink" title="自定义 File Template"></a>自定义 File Template</h3><p>创建单例class（自带饿汉）</p>
+<ul>
+<li><p>进入活动模板界面：File -&gt; Settings -&gt; Editor -&gt; File and Code Templates</p>
+</li>
+<li><p>点击加号 ，输入模板名称 <code>WiiSingleton</code> 。</p>
+<p>   #if (${PACKAGE_NAME} &amp;&amp; ${PACKAGE_NAME} != “”)package ${PACKAGE_NAME};#end<br>   #parse(“File Header.java”)<br>   public class ${NAME}{</p>
+<pre><code>private static ${NAME} instance;
+
+private ${NAME}() {}
+
+public static ${NAME} getInstance() {
+    if(instance == null){
+        synchronized (${NAME}.class) {
+            if (instance == null) {
+                instance = new ${NAME}();
+            }
+        }
+    }
+    return instance;
+}</code></pre><p>   }</p>
+</li>
+</ul>
+<blockquote>
+<p>PS：可以创建一些 <code>activity</code> 的模板</p>
+</blockquote>
+<h3 id="疑难杂症"><a href="#疑难杂症" class="headerlink" title="疑难杂症"></a>疑难杂症</h3><ol>
+<li>无法连接到手机，报错 ： error running app unable to obtain debug bridge  </li>
+</ol>
+<p><em>解决办法</em>：Tools -&gt; Android -&gt; Enable ADB Integration，取消勾选</p>
+<h3 id="Android-Studio-生成-arr"><a href="#Android-Studio-生成-arr" class="headerlink" title="Android Studio 生成 arr"></a>Android Studio 生成 arr</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">点击 View -&gt; Tool Windows -&gt; Gradle -&gt; lib -&gt; build -&gt; library -&gt; assembleRelease</span><br><span class="line">编译完成会生成文件：library/build/outputs/aar/library-release.aar</span><br></pre></td></tr></table></figure>
+
+<h3 id="针对SendBroadcastPermission-action-mPermissionType-问题分析及解决方案"><a href="#针对SendBroadcastPermission-action-mPermissionType-问题分析及解决方案" class="headerlink" title="针对SendBroadcastPermission: action:, mPermissionType: 问题分析及解决方案"></a>针对SendBroadcastPermission: action:<em>, mPermissionType:</em> 问题分析及解决方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">华为在针对系统广播时，进行了限制，防止自启动或连锁启动。动态广播会被华为的系统管家禁止，静态广播虽然会限制，但不影响广播接受。</span><br><span class="line">本地广播:</span><br><span class="line">使用 LocalBroadcastManager.getInstance().registerReceiver 及 LocalBroadcastManager.getInstance().sendBroadcast 来代替。</span><br><span class="line">非本地广播:</span><br><span class="line">由于系统并没有彻底拦截静态注册的广播接收器，只是不允许自启动，所以可以通过静态注册的方式接受通知的PendingIntent点击发送广播事件。</span><br></pre></td></tr></table></figure>
+
+<h3 id="部分手机发送短信的Bug"><a href="#部分手机发送短信的Bug" class="headerlink" title="部分手机发送短信的Bug"></a>部分手机发送短信的Bug</h3><p>发送短信，编辑中文信息正常，点击发送，短信的中文内容不见了，只剩下英文和数字，接受者也看不到中文内容<br><em>解决方法</em>：进入短信的设置界面，选择短信编码方法，将 <code>GSM 7-bit</code> 改成 <code>自动</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/android-studio/" rel="tag"># android studio</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/20/wx_problem/" rel="next" title="小程序 开发之“一万个为什么”">
+                <i class="fa fa-chevron-left"></i> 小程序 开发之“一万个为什么”
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/04/ijkplayer_compile/" rel="prev" title="ijkplayer 二次编译">
+                ijkplayer 二次编译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTM3Mi8yMTg4NQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">唯一的博客</p>
+              <p class="site-description motion-element" itemprop="description">没有不可能</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wii-huxley" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/weiyianroid" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#全文搜索"><span class="nav-number">1.</span> <span class="nav-text">全文搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义-Live-Template"><span class="nav-number">2.</span> <span class="nav-text">自定义 Live Template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义-File-Template"><span class="nav-number">3.</span> <span class="nav-text">自定义 File Template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#疑难杂症"><span class="nav-number">4.</span> <span class="nav-text">疑难杂症</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-Studio-生成-arr"><span class="nav-number">5.</span> <span class="nav-text">Android Studio 生成 arr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#针对SendBroadcastPermission-action-mPermissionType-问题分析及解决方案"><span class="nav-number">6.</span> <span class="nav-text">针对SendBroadcastPermission: action:, mPermissionType: 问题分析及解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部分手机发送短信的Bug"><span class="nav-number">7.</span> <span class="nav-text">部分手机发送短信的Bug</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯一的博客</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/ic_launcher_round.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ic_launcher_round_32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ic_launcher_round_16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/ic_launcher_round.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="基本配置用户信息用户信息 $ git config --global user.name &amp;quot;John Doe&amp;quot; $ git config --global user.email johndoe@example.com文本编译器 $ git config --global core.editor emacs差异分析工具 $ git config --global merge.to">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ProGit阅读笔记">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/pro_git_note/index.html">
+<meta property="og:site_name" content="huxley">
+<meta property="og:description" content="基本配置用户信息用户信息 $ git config --global user.name &amp;quot;John Doe&amp;quot; $ git config --global user.email johndoe@example.com文本编译器 $ git config --global core.editor emacs差异分析工具 $ git config --global merge.to">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/img_2_1.png">
+<meta property="og:image" content="http://yoursite.com/images/img_3_1.png">
+<meta property="og:image" content="http://yoursite.com/images/img_3_2.png">
+<meta property="og:updated_time" content="2019-07-22T06:09:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ProGit阅读笔记">
+<meta name="twitter:description" content="基本配置用户信息用户信息 $ git config --global user.name &amp;quot;John Doe&amp;quot; $ git config --global user.email johndoe@example.com文本编译器 $ git config --global core.editor emacs差异分析工具 $ git config --global merge.to">
+<meta name="twitter:image" content="http://yoursite.com/images/img_2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/29/pro_git_note/">
+
+
+
+
+
+  <title>ProGit阅读笔记 | huxley</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-144007035-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">huxley</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">没有不可能</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/29/pro_git_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唯一的博客">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="huxley">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ProGit阅读笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-29T21:55:43+08:00">
+                2016-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>用户信息</p>
+<pre><code>$ git config --global user.name &quot;John Doe&quot;
+$ git config --global user.email johndoe@example.com</code></pre><p>文本编译器</p>
+<pre><code>$ git config --global core.editor emacs</code></pre><p>差异分析工具</p>
+<pre><code>$ git config --global merge.tool vimdiff</code></pre><p>查看配置信息</p>
+<pre><code>$ git config --list
+有时候会看到重复的变量名，那就说明它们来自不同的配置文件（比如
+/etc/gitconfig 和 ~/.gitconfig），不过最终 Git 实际采用的是最后一个。
+
+也可以直接查阅某个环境变量的设定，只要把特定的名字跟在后面即可，像这样：
+$ git config user.name</code></pre><h2 id="Git-基本用法"><a href="#Git-基本用法" class="headerlink" title="Git 基本用法"></a>Git 基本用法</h2><h3 id="取得项目的Git仓库"><a href="#取得项目的Git仓库" class="headerlink" title="取得项目的Git仓库"></a>取得项目的Git仓库</h3><p>在工作目录中初始化新仓库</p>
+<pre><code>$ git init</code></pre><p>从现有仓库克隆</p>
+<pre><code>$ git clone git://github.com/schacon/grit.git
+$ git clone git://github.com/schacon/grit.git mygrit</code></pre><blockquote>
+<p>唯一的差别就是，现在新建的目录成了 mygrit，其他的都和上边的一样。</p>
+</blockquote>
+<h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><blockquote>
+<p><img src="/images/img_2_1.png" alt="Alt text"></p>
+</blockquote>
+<blockquote>
+<p>图 2-1. 文件的状态变化周期</p>
+</blockquote>
+<p>检查当前文件状态</p>
+<pre><code>$ git status</code></pre><blockquote>
+<ul>
+<li>Untracked files：未跟踪</li>
+<li>Changes not staged for commit：已跟踪，未暂存</li>
+<li>Changes to be committed：已暂存</li>
+</ul>
+</blockquote>
+<p>跟踪新文件</p>
+<pre><code>$ git add README</code></pre><p>暂存已修改文件</p>
+<pre><code>$ git add benchmarks.rb</code></pre><p>忽略某些文件</p>
+<pre><code>$ cat .gitignore
+*.[oa]
+*~</code></pre><blockquote>
+<ul>
+<li>星号（*）匹配零个或多个任意字符</li>
+<li>[abc] 匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）</li>
+<li>问号（?）只匹配一个任意字符</li>
+<li>如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。</li>
+</ul>
+</blockquote>
+<pre><code># 此为注释 – 将被 Git 忽略
+# 忽略所有 .a 结尾的文件
+*.a
+# 但 lib.a 除外
+!lib.a
+# 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+/TODO
+# 忽略 build/ 目录下的所有文件
+build/
+# 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+doc/*.txt
+# ignore all .txt files in the doc/ directory
+doc/**/*.txt</code></pre><p>查看已暂存和未暂存的更新</p>
+<pre><code>$ git diff</code></pre><blockquote>
+<p>比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。</p>
+</blockquote>
+<pre><code>git diff --cached</code></pre><blockquote>
+<p>比较已暂存的文件和上次提交时的快照之间的差异</p>
+</blockquote>
+<pre><code>git diff --staged
+
+//Git 1.6.1 及更高版本还允许使用,效果是相同的，但更好记些。
+git diff --staged</code></pre><p>提交更新</p>
+<pre><code>$ git commit</code></pre><blockquote>
+<p>git会启动文本编译器，以便输入本次提交的说明，文本中包含最后一次运行git status的输出，也可以用 <code>-v</code> 将修改差异的每一行都包含进来，退出编译器，git会去掉注释行，将说明内容和本次更新提交到仓库</p>
+</blockquote>
+<pre><code>$ git commit -m &quot;Story 182: Fix benchmarks for speed&quot;
+[master 463dc4f] Story 182: Fix benchmarks for speed
+ 2 files changed, 3 insertions(+)
+ create mode 100644 README</code></pre><blockquote>
+<p>也可用 <code>-m</code> 参数后跟提交的方式</p>
+</blockquote>
+<blockquote>
+<p>提交后它会告诉你，当前提交的分支( <code>master</code> )，本次提交的完整SHA-1校验( <code>463dc4f</code> )，有多少文件修订过，多少行增删改过</p>
+</blockquote>
+<p>跳过使用暂存区域</p>
+<pre><code>$ git commit -a -m &apos;added new benchmarks&apos;</code></pre><blockquote>
+<p>给 <code>git commit</code> 加上 <code>-a</code> 选项，git就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 <code>git add</code> 步骤</p>
+</blockquote>
+<p>移除文件</p>
+<pre><code>$ rm grit.gemspec</code></pre><blockquote>
+<p>从工作目录中手工删除文件，运行 <code>git status</code> 时就会在 <code>Changes not staged for commit</code> 部分看到</p>
+</blockquote>
+<pre><code>$ git rm grit.gemspec</code></pre><blockquote>
+<p>提交后，该文件就不再纳入版本管理了，如果删除之前修改过并且已经放到暂存区，则必须要用强制删除选项 <code>-f</code> ，以防误删文件后丢失修改的内容</p>
+</blockquote>
+<pre><code>$ git rm --cached readme.txt</code></pre><blockquote>
+<p>把文件从git仓库中删除，但仍保留在工作目录</p>
+</blockquote>
+<p>移动文件</p>
+<pre><code>$ git mv file_from file_to</code></pre><blockquote>
+<p>修改文件名字</p>
+</blockquote>
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><pre><code>$ git log</code></pre><blockquote>
+<p>按照提交时间列出所有的更新，每次更新都有一个 SHA-1 校验、name、email、提交时间和最后缩进一个段落显示提交说明</p>
+</blockquote>
+<pre><code>$ git log -p -2</code></pre><blockquote>
+<p><code>-p</code> 选项展开显示每次提交的内容差异，用 <code>-2</code> 则仅显示最近的两次更新</p>
+</blockquote>
+<pre><code>$ git log -U1 --word-diff</code></pre><blockquote>
+<p>这里的对比显示在行间，新增的单词被 <code>{+ +}</code> 括起来，被删除的单词被 <code>[- -]</code> 括起来，<code>-U1</code> 使上下文(context)行数从默认的 3 行，减为 1 行</p>
+</blockquote>
+<pre><code>$ git log --stat</code></pre><blockquote>
+<p>每个提交都列出了修改过的文件，以及其中添加和移除的行数，并在最后列出所有增减行数小计</p>
+</blockquote>
+<pre><code>$ git log --pretty=oneline</code></pre><blockquote>
+<p>将每个提交放在一行显示，这在提交数很大时非常有用。另外还有 <code>short</code>，<code>full</code> 和 <code>fuller</code> 可以用，展示的信息或多或少有些不同</p>
+</blockquote>
+<pre><code>$ git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
+
+选项     说明
+%H      提交对象（commit）的完整哈希字串
+%h      提交对象的简短哈希字串
+%T      树对象（tree）的完整哈希字串
+%t      树对象的简短哈希字串
+%P      父对象（parent）的完整哈希字串
+%p      父对象的简短哈希字串
+%an      作者（author）的名字
+%ae      作者的电子邮件地址
+%ad      作者修订日期（可以用 -date= 选项定制格式）
+%ar      作者修订日期，按多久以前的方式显示
+%cn      提交者(committer)的名字
+%ce      提交者的电子邮件地址
+%cd      提交日期
+%cr      提交日期，按多久以前的方式显示
+%s      提交说明</code></pre><blockquote>
+<p>定制要显示的记录格式，这样的输出便于后期编程提取分析</p>
+</blockquote>
+<pre><code>$ git log --pretty=format:&quot;%h %s&quot; --graph</code></pre><blockquote>
+<p>用 oneline 或 format 时结合 <code>--graph</code> 选项，可以看到开头多出一些 ASCII 字符串表示的简单图形，形象地展示了每个提交所在的分支及其分化衍合情况。</p>
+</blockquote>
+<blockquote>
+<p>其他常用的选项及其释义</p>
+</blockquote>
+<pre><code>选项             说明
+-p                按补丁格式显示每个更新之间的差异。
+--word-diff        按 word diff 格式显示差异。
+--stat            显示每次更新的文件修改统计信息。
+--shortstat        只显示 --stat 中最后的行数修改添加移除统计。
+--name-only        仅在提交信息后显示已修改的文件清单。
+--name-status    显示新增、修改、删除的文件清单。
+--abbrev-commit    仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。
+--relative-date    使用较短的相对时间显示（比如，“2 weeks ago”）。
+--graph            显示 ASCII 图形表示的分支合并历史。
+--pretty        使用其他格式显示历史提交信息。可用的选项包括 oneline，
+                short，full，fuller 和 format（后跟指定格式）。
+--oneline        `--pretty=oneline --abbrev-commit` 的简化用法。</code></pre><p>限制输出长度</p>
+<pre><code>$ git log --since=2.weeks</code></pre><blockquote>
+<p>列出所有最近两周内的提交，你可以给出各种时间格式，比如说具体的某一天（“2008-01-15”），或者是多久以前（“2 years 1 day 3 minutes ago”）。</p>
+</blockquote>
+<blockquote>
+<p>还可以给出若干搜索条件，列出符合的提交。用 <code>--author</code> 选项显示指定作者的提交，用 <code>--grep</code> 选项搜索提交说明中的关键字。（请注意，如果要得到同时满足这两个选项搜索条件的提交，就必须用 <code>--all-match</code> 选项。否则，满足任意一个条件的提交都会被匹配出来）</p>
+</blockquote>
+<blockquote>
+<p>另一个真正实用的 <code>git log</code> 选项是路径(path)，如果只关心某些文件或者目录的历史提交，可以在 <code>git log</code> 选项的最后指定它们的路径。因为是放在最后位置上的选项，所以用两个短划线（ <code>--</code> ）隔开之前的选项和后面限定的路径名。</p>
+</blockquote>
+<pre><code>选项               说明
+-(n)              仅显示最近的 n 条提交
+--since, --after  仅显示指定时间之后的提交。
+--until, --before 仅显示指定时间之前的提交。
+--author          仅显示指定作者相关的提交。
+--committer       仅显示指定提交者相关的提交。</code></pre><blockquote>
+<p>其他常用的类似选项。</p>
+</blockquote>
+<pre><code>$ git log --pretty=&quot;%h - %s&quot; --author=gitster
+--since=&quot;2008-10-01&quot; \--before=&quot;2008-11-01&quot;
+--no-merges -- t/</code></pre><blockquote>
+<p>2008年10月1日到2008年11月1日期间，gitster提交但未合并的测试脚本，位于项目的t/目录下的文件</p>
+</blockquote>
+<p>使用图形化工具查阅提交历史</p>
+<blockquote>
+<p>新版的git安装后，就安装了gitk，在项目工作目录中输入 gitk 命令后，就会启动 <code>gitk</code> 界面。</p>
+</blockquote>
+<h3 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>修改最后一次提交</p>
+<pre><code>$ git commit --amend</code></pre><blockquote>
+<p>此命令将使用当前的暂存区域快照提交。如果刚才提交完没有作任何改动，直接运行此命令的话，相当于有机会重新编辑提交说明，但将要提交的文件快照和之前的一样。</p>
+</blockquote>
+<blockquote>
+<p>启动文本编辑器后，会看到上次提交时的说明，编辑它确认没问题后保存退出，就会使用新的提交说明覆盖刚才失误的提交。</p>
+</blockquote>
+<pre><code>$ git commit -m &apos;initial commit&apos;
+$ git add forgotten_file
+$ git commit --amend</code></pre><blockquote>
+<p>三条命令最终只是产生一个提交，第二个提交命令修正了第一个的提交内容。</p>
+</blockquote>
+<p>取消已经暂存的文件</p>
+<pre><code>$ git reset HEAD benchmarks.rb</code></pre><p>取消对文件的修改</p>
+<pre><code>$ git checkout -- benchmarks.rb</code></pre><blockquote>
+<p>该文件已经恢复到修改前的版本，这条命令有些危险，所有对文件的修改都没有了。如果只是想回退版本，同时保留刚才的修改以便将来继续工作，可以用下章介绍的 stashing 和分支来处理，应该会更好些。</p>
+</blockquote>
+<h3 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h3><p>查看当前的远程库</p>
+<pre><code>$ git remote</code></pre><blockquote>
+<p>查看当前配置的远程仓库</p>
+</blockquote>
+<pre><code>$ git remote -v
+bakkdoor  git://github.com/bakkdoor/grit.git
+cho45     git://github.com/cho45/grit.git
+defunkt   git://github.com/defunkt/grit.git
+koke      git://github.com/koke/grit.git
+origin    git@github.com:mojombo/grit.git</code></pre><blockquote>
+<p>加上 -v 选项，显示对应的克隆地址，如果有多个远程仓库，此命令将全部列出，上面列出的地址只有 origin 用的是 SSH URL 链接，所以也只有这个仓库我能推送数据上去</p>
+</blockquote>
+<p>添加远程仓库</p>
+<pre><code>$ git remote add pb git://github.com/paulboone/ticgit.git</code></pre><blockquote>
+<p>添加一个新的远程仓库，指定一个名字</p>
+</blockquote>
+<p>从远程仓库抓取数据</p>
+<pre><code>$ git fetch pb</code></pre><blockquote>
+<p>要抓取所有 Paul 有的，但本地仓库没有的信息，只是将远端的数据拉到本地仓库，并不自动合并到当前工作分支，只有当你确实准备好了，才能手工合并。</p>
+</blockquote>
+<pre><code>git pull</code></pre><blockquote>
+<p>自动抓取数据下来，然后将远端分支自动合并到本地仓库中当前分支。</p>
+</blockquote>
+<p>推送数据到远程仓库：</p>
+<pre><code>$ git push origin master</code></pre><p>查看远程仓库信息</p>
+<pre><code>$ git remote show origin</code></pre><p>远程仓库的删除和重命名</p>
+<pre><code>$ git remote rename pb paul</code></pre><blockquote>
+<p>修改远程仓库在本地的简称</p>
+</blockquote>
+<pre><code>$ git remote rm paul</code></pre><blockquote>
+<p>移除对应的远端仓库</p>
+</blockquote>
+<h3 id="打标签"><a href="#打标签" class="headerlink" title="打标签"></a>打标签</h3><p>列显已有的标签</p>
+<pre><code>$ git tag</code></pre><blockquote>
+<p>显示的标签按字母顺序排列</p>
+</blockquote>
+<pre><code>$ git tag -l &apos;v1.4.2.*&apos;</code></pre><blockquote>
+<p>列出符合条件的标签</p>
+</blockquote>
+<p>新建标签</p>
+<blockquote>
+<p>标签有两种：</p>
+<p>轻量级的：</p>
+<blockquote>
+<p>像是个不会变化的分支，实际上它就是个指向特定提交对象的引用</p>
+</blockquote>
+<p>含附注的：</p>
+<blockquote>
+<p>实际上是存储在仓库中的一个独立对象，它有自身的校验和信息，包含着标签的名字，电子邮件地址和日期，以及标签说明，标签本身也允许使用 GNU Privacy Guard (GPG) 来签署或验证。</p>
+</blockquote>
+<p>一般我们都建议使用含附注型的标签，以便保留相关信息；当然，如果只是临时性加注标签，或者不需要旁注额外信息，用轻量级标签也没问题。</p>
+</blockquote>
+<p>含附注的标签</p>
+<pre><code>$ git tag -a v1.4 -m &apos;my version 1.4&apos;</code></pre><p>签署标签</p>
+<pre><code>$ git tag -s v1.5 -m &apos;my signed 1.5 tag&apos;</code></pre><blockquote>
+<p>使用自己的私钥，用 GPG 来签署标签，把之前的 -a 改为 -s</p>
+</blockquote>
+<p>轻量级标签</p>
+<pre><code>$ git tag v1.4-lw</code></pre><p>验证标签</p>
+<pre><code>$ git tag -v v1.4.2.1</code></pre><p>后期加注标签</p>
+<pre><code>$ git tag -a v1.2 9fceb02</code></pre><blockquote>
+<p>在打标签的时候跟上对应提交对象的校验和（或前几位字符）</p>
+</blockquote>
+<p>分享标签</p>
+<pre><code>$ git push origin v1.5</code></pre><blockquote>
+<p>默认情况下，git push 并不会把标签传送到远端服务器上，只有通过显式命令才能分享标签到远端仓库。其命令格式如同推送分支，运行 <code>git push origin [tagname]</code></p>
+</blockquote>
+<pre><code>$ git push origin --tags</code></pre><blockquote>
+<p>一次推送所有本地新增的标签上去</p>
+</blockquote>
+<h3 id="技巧和窍门"><a href="#技巧和窍门" class="headerlink" title="技巧和窍门"></a>技巧和窍门</h3><p>自动补全</p>
+<blockquote>
+<p>如果你用的是 Bash shell，可以试试看 Git 提供的自动补全脚本。下载 Git 的源代码，进入 <code>contrib/completion</code> 目录，会看到一个 <code>git-completion.bash</code> 文件。将此文件复制到你自己的用户主目录中（译注：按照下面的示例，还应改名加上点：<code>cp git-completion.bash ~/.git-completion.bash</code>），并把下面一行内容添加到你的 <code>.bashrc</code> 文件中：</p>
+</blockquote>
+<pre><code>source ~/.git-completion.bash</code></pre><blockquote>
+<p>也可以为系统上所有用户都设置默认使用此脚本。Mac 上将此脚本复制到 /opt/local/etc/bash_completion.d 目录中，Linux 上则复制到 /etc/bash_completion.d/ 目录中。这两处目录中的脚本，都会在 Bash 启动时自动加载。</p>
+</blockquote>
+<blockquote>
+<p>如果在 Windows 上安装了 msysGit，默认使用的 Git Bash 就已经配好了这个自动补全脚本，可以直接使用。</p>
+</blockquote>
+<blockquote>
+<p>在输入 Git 命令的时候可以敲两次跳格键（Tab），就会看到列出所有匹配的可用命令建议</p>
+</blockquote>
+<blockquote>
+<p>键入 git co 然后连按两次 Tab 键，会看到两个相关的建议（命令） commit 和 config。继而输入 m<tab> 会自动完成 git commit 命令的输入。</tab></p>
+</blockquote>
+<p>Git 命令别名</p>
+<pre><code>$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status</code></pre><blockquote>
+<p>用 git config 为命令设置别名后，如果要输入 git commit 只需键入 git ci 即可</p>
+</blockquote>
+<pre><code>$ git config --global alias.unstage &apos;reset HEAD --&apos;
+
+$ git unstage fileA
+$ git reset HEAD fileA</code></pre><blockquote>
+<p>取消暂存文件时的输入， 这样一来，下面的两条命令完全等同：</p>
+</blockquote>
+<pre><code>$ git config --global alias.last &apos;log -1 HEAD&apos;</code></pre><blockquote>
+<p>设置 last 命令，然后要看最后一次的提交信息，就变得简单多了</p>
+</blockquote>
+<pre><code>$ git config --global alias.visual &apos;!gitk&apos;</code></pre><blockquote>
+<p>不过有时候我们希望运行某个外部命令，而非 Git 的子命令，这个好办，只需要在命令前加上 <code>!</code> 就行。如果你自己写了些处理 Git 仓库信息的脚本的话，就可以用这种技术包装起来。作为演示，我们可以设置用 <code>git visual</code> 启动 <code>gitk</code></p>
+</blockquote>
+<h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><h3 id="何谓分支"><a href="#何谓分支" class="headerlink" title="何谓分支"></a>何谓分支</h3><blockquote>
+<p>在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先。</p>
+</blockquote>
+<p><img src="/images/img_3_1.png" alt></p>
+<blockquote>
+<p>单个提交对象在仓库中的数据结构</p>
+</blockquote>
+<p><img src="/images/img_3_2.png" alt></p>
+<blockquote>
+<p>多个提交对象之间的链接关系</p>
+</blockquote>
+<h3 id="分支的新建与合并"><a href="#分支的新建与合并" class="headerlink" title="分支的新建与合并"></a>分支的新建与合并</h3><h3 id="分支的管理"><a href="#分支的管理" class="headerlink" title="分支的管理"></a>分支的管理</h3><h3 id="利用分支进行开发的工作流程"><a href="#利用分支进行开发的工作流程" class="headerlink" title="利用分支进行开发的工作流程"></a>利用分支进行开发的工作流程</h3><h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><h3 id="分支的衍合"><a href="#分支的衍合" class="headerlink" title="分支的衍合"></a>分支的衍合</h3><h2 id="服务器上的Git"><a href="#服务器上的Git" class="headerlink" title="服务器上的Git"></a>服务器上的Git</h2><h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><h3 id="在服务器上部署-Git"><a href="#在服务器上部署-Git" class="headerlink" title="在服务器上部署 Git"></a>在服务器上部署 Git</h3><h3 id="生成-SSH-公钥"><a href="#生成-SSH-公钥" class="headerlink" title="生成 SSH 公钥"></a>生成 SSH 公钥</h3><h3 id="架设服务器"><a href="#架设服务器" class="headerlink" title="架设服务器"></a>架设服务器</h3><h3 id="公共访问"><a href="#公共访问" class="headerlink" title="公共访问"></a>公共访问</h3><h3 id="GitWeb"><a href="#GitWeb" class="headerlink" title="GitWeb"></a>GitWeb</h3><h3 id="Gitosis"><a href="#Gitosis" class="headerlink" title="Gitosis"></a>Gitosis</h3><h3 id="Gitolite"><a href="#Gitolite" class="headerlink" title="Gitolite"></a>Gitolite</h3><h3 id="Git-守护进程"><a href="#Git-守护进程" class="headerlink" title="Git 守护进程"></a>Git 守护进程</h3><h3 id="Git-托管服务"><a href="#Git-托管服务" class="headerlink" title="Git 托管服务"></a>Git 托管服务</h3><h2 id="分布式-Git"><a href="#分布式-Git" class="headerlink" title="分布式 Git"></a>分布式 Git</h2><h3 id="分布式工作流程"><a href="#分布式工作流程" class="headerlink" title="分布式工作流程"></a>分布式工作流程</h3><h3 id="为项目作贡献"><a href="#为项目作贡献" class="headerlink" title="为项目作贡献"></a>为项目作贡献</h3><h3 id="项目的管理"><a href="#项目的管理" class="headerlink" title="项目的管理"></a>项目的管理</h3><h2 id="Git-工具"><a href="#Git-工具" class="headerlink" title="Git 工具"></a>Git 工具</h2><h3 id="修订版本（Revision）选择"><a href="#修订版本（Revision）选择" class="headerlink" title="修订版本（Revision）选择"></a>修订版本（Revision）选择</h3><h3 id="交互式暂存"><a href="#交互式暂存" class="headerlink" title="交互式暂存"></a>交互式暂存</h3><h3 id="储藏（Stashing）"><a href="#储藏（Stashing）" class="headerlink" title="储藏（Stashing）"></a>储藏（Stashing）</h3><h3 id="重写历史"><a href="#重写历史" class="headerlink" title="重写历史"></a>重写历史</h3><h3 id="使用-Git-调试"><a href="#使用-Git-调试" class="headerlink" title="使用 Git 调试"></a>使用 Git 调试</h3><h3 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h3><h3 id="子树合并"><a href="#子树合并" class="headerlink" title="子树合并"></a>子树合并</h3><h2 id="自定义-Git"><a href="#自定义-Git" class="headerlink" title="自定义 Git"></a>自定义 Git</h2><h3 id="配置-Git"><a href="#配置-Git" class="headerlink" title="配置 Git"></a>配置 Git</h3><h3 id="Git属性"><a href="#Git属性" class="headerlink" title="Git属性"></a>Git属性</h3><h3 id="Git挂钩"><a href="#Git挂钩" class="headerlink" title="Git挂钩"></a>Git挂钩</h3><h3 id="Git-强制策略实例"><a href="#Git-强制策略实例" class="headerlink" title="Git 强制策略实例 #"></a>Git 强制策略实例 #</h3><h2 id="Git与其他系统"><a href="#Git与其他系统" class="headerlink" title="Git与其他系统"></a>Git与其他系统</h2><h3 id="Git-与-Subversion"><a href="#Git-与-Subversion" class="headerlink" title="Git 与 Subversion"></a>Git 与 Subversion</h3><h3 id="迁移到-Git"><a href="#迁移到-Git" class="headerlink" title="迁移到 Git"></a>迁移到 Git</h3><h2 id="Git-内部原理"><a href="#Git-内部原理" class="headerlink" title="Git 内部原理"></a>Git 内部原理</h2><h3 id="底层命令-Plumbing-和高层命令-Porcelain"><a href="#底层命令-Plumbing-和高层命令-Porcelain" class="headerlink" title="底层命令 (Plumbing) 和高层命令 (Porcelain)"></a>底层命令 (Plumbing) 和高层命令 (Porcelain)</h3><h3 id="Git-对象"><a href="#Git-对象" class="headerlink" title="Git 对象"></a>Git 对象</h3><h3 id="Git-References"><a href="#Git-References" class="headerlink" title="Git References"></a>Git References</h3><h3 id="Packfiles"><a href="#Packfiles" class="headerlink" title="Packfiles"></a>Packfiles</h3><h3 id="The-Refspec"><a href="#The-Refspec" class="headerlink" title="The Refspec"></a>The Refspec</h3><h3 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h3><h3 id="维护及数据恢复"><a href="#维护及数据恢复" class="headerlink" title="维护及数据恢复"></a>维护及数据恢复</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/29/MarkDownGrammar/" rel="next" title="MarkDown语法笔记">
+                <i class="fa fa-chevron-left"></i> MarkDown语法笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/16/hand_test_1/" rel="prev" title="手相-感情线">
+                手相-感情线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTM3Mi8yMTg4NQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">唯一的博客</p>
+              <p class="site-description motion-element" itemprop="description">没有不可能</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wii-huxley" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/weiyianroid" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-number">1.</span> <span class="nav-text">基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户信息"><span class="nav-number">1.1.</span> <span class="nav-text">用户信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-基本用法"><span class="nav-number">2.</span> <span class="nav-text">Git 基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取得项目的Git仓库"><span class="nav-number">2.1.</span> <span class="nav-text">取得项目的Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库"><span class="nav-number">2.2.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史"><span class="nav-number">2.3.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤消操作"><span class="nav-number">2.4.</span> <span class="nav-text">撤消操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库的使用"><span class="nav-number">2.5.</span> <span class="nav-text">远程仓库的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打标签"><span class="nav-number">2.6.</span> <span class="nav-text">打标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技巧和窍门"><span class="nav-number">2.7.</span> <span class="nav-text">技巧和窍门</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git分支"><span class="nav-number">3.</span> <span class="nav-text">Git分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#何谓分支"><span class="nav-number">3.1.</span> <span class="nav-text">何谓分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的新建与合并"><span class="nav-number">3.2.</span> <span class="nav-text">分支的新建与合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的管理"><span class="nav-number">3.3.</span> <span class="nav-text">分支的管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用分支进行开发的工作流程"><span class="nav-number">3.4.</span> <span class="nav-text">利用分支进行开发的工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程分支"><span class="nav-number">3.5.</span> <span class="nav-text">远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的衍合"><span class="nav-number">3.6.</span> <span class="nav-text">分支的衍合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器上的Git"><span class="nav-number">4.</span> <span class="nav-text">服务器上的Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#协议"><span class="nav-number">4.1.</span> <span class="nav-text">协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在服务器上部署-Git"><span class="nav-number">4.2.</span> <span class="nav-text">在服务器上部署 Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成-SSH-公钥"><span class="nav-number">4.3.</span> <span class="nav-text">生成 SSH 公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#架设服务器"><span class="nav-number">4.4.</span> <span class="nav-text">架设服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公共访问"><span class="nav-number">4.5.</span> <span class="nav-text">公共访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitWeb"><span class="nav-number">4.6.</span> <span class="nav-text">GitWeb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitosis"><span class="nav-number">4.7.</span> <span class="nav-text">Gitosis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gitolite"><span class="nav-number">4.8.</span> <span class="nav-text">Gitolite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-守护进程"><span class="nav-number">4.9.</span> <span class="nav-text">Git 守护进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-托管服务"><span class="nav-number">4.10.</span> <span class="nav-text">Git 托管服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式-Git"><span class="nav-number">5.</span> <span class="nav-text">分布式 Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式工作流程"><span class="nav-number">5.1.</span> <span class="nav-text">分布式工作流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为项目作贡献"><span class="nav-number">5.2.</span> <span class="nav-text">为项目作贡献</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目的管理"><span class="nav-number">5.3.</span> <span class="nav-text">项目的管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-工具"><span class="nav-number">6.</span> <span class="nav-text">Git 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修订版本（Revision）选择"><span class="nav-number">6.1.</span> <span class="nav-text">修订版本（Revision）选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交互式暂存"><span class="nav-number">6.2.</span> <span class="nav-text">交互式暂存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#储藏（Stashing）"><span class="nav-number">6.3.</span> <span class="nav-text">储藏（Stashing）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写历史"><span class="nav-number">6.4.</span> <span class="nav-text">重写历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Git-调试"><span class="nav-number">6.5.</span> <span class="nav-text">使用 Git 调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子模块"><span class="nav-number">6.6.</span> <span class="nav-text">子模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子树合并"><span class="nav-number">6.7.</span> <span class="nav-text">子树合并</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义-Git"><span class="nav-number">7.</span> <span class="nav-text">自定义 Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Git"><span class="nav-number">7.1.</span> <span class="nav-text">配置 Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git属性"><span class="nav-number">7.2.</span> <span class="nav-text">Git属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git挂钩"><span class="nav-number">7.3.</span> <span class="nav-text">Git挂钩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-强制策略实例"><span class="nav-number">7.4.</span> <span class="nav-text">Git 强制策略实例 #</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git与其他系统"><span class="nav-number">8.</span> <span class="nav-text">Git与其他系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-与-Subversion"><span class="nav-number">8.1.</span> <span class="nav-text">Git 与 Subversion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迁移到-Git"><span class="nav-number">8.2.</span> <span class="nav-text">迁移到 Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-内部原理"><span class="nav-number">9.</span> <span class="nav-text">Git 内部原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#底层命令-Plumbing-和高层命令-Porcelain"><span class="nav-number">9.1.</span> <span class="nav-text">底层命令 (Plumbing) 和高层命令 (Porcelain)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-对象"><span class="nav-number">9.2.</span> <span class="nav-text">Git 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-References"><span class="nav-number">9.3.</span> <span class="nav-text">Git References</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Packfiles"><span class="nav-number">9.4.</span> <span class="nav-text">Packfiles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Refspec"><span class="nav-number">9.5.</span> <span class="nav-text">The Refspec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输协议"><span class="nav-number">9.6.</span> <span class="nav-text">传输协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#维护及数据恢复"><span class="nav-number">9.7.</span> <span class="nav-text">维护及数据恢复</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唯一的博客</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
